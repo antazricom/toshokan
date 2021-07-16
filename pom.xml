@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ================================================== -->
+    <!-- Project -->
+    <!-- ================================================== -->
+    <groupId>com.antazri</groupId>
+    <artifactId>toshokan</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+
+    <!-- Global information -->
+    <name>Toshokan</name>
+    <description>Online Personal library</description>
+
+    <!-- ================================================== -->
+    <!-- Properties -->
+    <!-- ================================================== -->
+    <modules>
+        <module>model</module>
+        <module>data</module>
+        <module>technical</module>
+        <module>api</module>
+    </modules>
+
+    <!-- ================================================== -->
+    <!-- Properties -->
+    <!-- ================================================== -->
+    <properties>
+        <revision>3.0-SNAPSHOT</revision>
+        <spring.version>5.3.9</spring.version>
+        <postgresql.version>42.2.23</postgresql.version>
+        <javax.servlet.version>4.0.1</javax.servlet.version>
+        <junit.version>5.7.2</junit.version>
+        <log4j2.version>2.14.1</log4j2.version>
+        <dbcp.version>2.8.0</dbcp.version>
+        <jackson.version>2.12.4</jackson.version>
+        <commons.lang3.version>3.12.0</commons.lang3.version>
+        <mockito.version>3.11.2</mockito.version>
+        <h2.version>1.4.200</h2.version>
+        <jaxb.api.version>2.3.1</jaxb.api.version>
+        <gson.version>2.8.7</gson.version>
+        <javax.validation.version>2.0.1.Final</javax.validation.version>
+
+        <!-- Maven Properties -->
+        <java.version>11</java.version>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+
+        <!-- Generic properties -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <!-- ================================================== -->
+    <!-- Dependencies Management -->
+    <!-- ================================================== -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Modules dependencies -->
+            <dependency>
+                <groupId>com.antazri</groupId>
+                <artifactId>model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.antazri</groupId>
+                <artifactId>data</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.antazri</groupId>
+                <artifactId>api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.antazri</groupId>
+                <artifactId>technical</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- Spring dependencies -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <!-- Database dependency -->
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.version}</version>
+            </dependency>
+
+            <!-- Javax Dependencies -->
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${javax.validation.version}</version>
+            </dependency>
+
+            <!-- Log Management with Log4J2 -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+
+            <!-- Commons dependency -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-dbcp2</artifactId>
+                <version>${dbcp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.lang3.version}</version>
+            </dependency>
+
+            <!-- Gson dependency -->
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+
+            <!-- Javax Servlet dependencies -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax.servlet.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- Jackson dependencies -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <!-- JUnit dependency -->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- ================================================== -->
+    <!-- Build Management -->
+    <!-- ================================================== -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.2.3</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                    <configuration>
+                        <showDeprecation>true</showDeprecation>
+                        <showWarnings>true</showWarnings>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.1.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.8.2</version>
+                    <configuration>
+                        <locales>fr</locales>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <!-- ================================================== -->
+    <!-- Profiles Management -->
+    <!-- ================================================== -->
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <spring.active.profiles>dev</spring.active.profiles>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>test</id>
+            <properties>
+                <spring.active.profiles>dev</spring.active.profiles>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>release</id>
+            <properties>
+                <spring.active.profiles>production</spring.active.profiles>
+            </properties>
+        </profile>
+
+    </profiles>
+
+    <!-- ================================================== -->
+    <!-- Reports Management -->
+    <!-- ================================================== -->
+    <reporting>
+
+    </reporting>
+
+</project>

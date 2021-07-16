@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       https://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+    <!-- Spring Context Scanning -->
+    <context:component-scan base-package="com.antazri.data"/>
+
+    <!-- Transaction Config By Annotation -->
+    <tx:annotation-driven/>
+
+    <!-- DataSource Properties Import -->
+    <context:property-placeholder location="classpath:data/db.properties"/>
+
+    <!-- DataSource Configuration -->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="${database.driverClassName}"/>
+        <property name="url" value="${database.url}"/>
+        <property name="username" value="${database.username}"/>
+        <property name="password" value="${database.password}"/>
+    </bean>
+
+    <!-- Datasource initialization -->
+<!--    <jdbc:initialize-database data-source="dataSource">-->
+<!--        <jdbc:script location="classpath:db_create.sql"/>-->
+<!--        <jdbc:script location="classpath:db_insert.sql"/>-->
+<!--        <jdbc:script location="classpath:db_view.sql"/>-->
+<!--    </jdbc:initialize-database>-->
+
+    <!-- Transaction Manager Configuration -->
+    <tx:annotation-driven />
+
+</beans>

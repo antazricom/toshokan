@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ================================================== -->
+    <!-- Parent Project -->
+    <!-- ================================================== -->
+    <parent>
+        <artifactId>toshokan</artifactId>
+        <groupId>com.antazri</groupId>
+        <version>${revision}</version>
+    </parent>
+
+    <!-- ================================================== -->
+    <!-- Project -->
+    <!-- ================================================== -->
+    <artifactId>technical</artifactId>
+    <version>${revision}</version>
+
+    <name>technical</name>
+    <url>http://www.antazri.com</url>
+
+    <!-- ================================================== -->
+    <!-- Repositories -->
+    <!-- ================================================== -->
+    <repositories>
+        <repository>
+            <id>nexus-snapshot</id>
+            <url>http://localhost:8081/repository/nexus-snapshot/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <!-- ================================================== -->
+    <!-- Properties -->
+    <!-- ================================================== -->
+    <properties>
+        <!-- Generic properties -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <!-- ================================================== -->
+    <!-- Dependencies Management -->
+    <!-- ================================================== -->
+    <dependencies>
+        <!-- Log Management with Log4J2 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!-- ================================================== -->
+    <!-- Build & Plugins Management -->
+    <!-- ================================================== -->
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <finalName>technical</finalName>
+    </build>
+</project>

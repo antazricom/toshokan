@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ================================================== -->
+    <!-- Parent Project -->
+    <!-- ================================================== -->
+    <parent>
+        <artifactId>toshokan</artifactId>
+        <groupId>com.antazri</groupId>
+        <version>${revision}</version>
+    </parent>
+
+    <!-- ================================================== -->
+    <!-- Project -->
+    <!-- ================================================== -->
+    <artifactId>api</artifactId>
+    <version>${revision}</version>
+    <packaging>war</packaging>
+
+    <name>api</name>
+    <url>http://www.antazri.com</url>
+
+    <!-- ================================================== -->
+    <!-- Properties -->
+    <!-- ================================================== -->
+    <properties>
+        <!-- Generic properties -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <!-- ================================================== -->
+    <!-- Dependencies Management -->
+    <!-- ================================================== -->
+    <dependencies>
+        <!-- Modules dependencies -->
+        <dependency>
+            <groupId>com.antazri</groupId>
+            <artifactId>model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.antazri</groupId>
+            <artifactId>data</artifactId>
+        </dependency>
+
+        <!-- Spring dependencies -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+
+        <!-- Gson dependency -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+
+
+        <!-- Jackson dependencies -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+        <!-- Javax Servlet dependency -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JUnit dependency -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- ================================================== -->
+    <!-- Build & Plugins Management -->
+    <!-- ================================================== -->
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <finalName>service</finalName>
+    </build>
+</project>
