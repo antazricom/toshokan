@@ -1,7 +1,7 @@
 package com.antazri.api.services.impl;
 
 import com.antazri.api.services.ICategoryService;
-import com.antazri.data.CategoryRepository;
+import com.antazri.data.CategoryDao;
 import com.antazri.exceptions.CategoryException;
 import com.antazri.model.Category;
 import com.antazri.model.utils.Message;
@@ -16,9 +16,9 @@ public class CategoryService implements ICategoryService {
 
     private static final Logger logger = LogManager.getLogger(CategoryService.class);
 
-    private final CategoryRepository categoryDao;
+    private final CategoryDao categoryDao;
 
-    public CategoryService(CategoryRepository categoryDao) {
+    public CategoryService(CategoryDao categoryDao) {
         this.categoryDao = categoryDao;
     }
 

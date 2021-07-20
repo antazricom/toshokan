@@ -11,24 +11,35 @@
        https://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
     <!-- Spring Context Scanning -->
-    <context:component-scan base-package="com.antazri.dao"/>
+    <context:component-scan base-package="com.antazri.data"/>
 
     <!-- Transaction Config By Annotation -->
     <tx:annotation-driven/>
 
     <!-- DataSource Properties Import -->
-    <context:property-placeholder location="classpath:data/db.properties"/>
+    <context:property-placeholder location="classpath:data/db-test.properties"/>
 
     <!-- Embedded DataSource Configuration -->
     <jdbc:embedded-database id="dataSource" type="H2">
-        <jdbc:script location="classpath:schema.sql"/>
-        <jdbc:script location="classpath:data.sql"/>
+        <jdbc:script location="classpath:db_create.sql"/>
+        <jdbc:script location="classpath:db_insert.sql"/>
+        <jdbc:script location="classpath:db_view.sql"/>
     </jdbc:embedded-database>
 
+
+    <!-- Transaction Manager Configuration -->
+    <tx:annotation-driven />
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
     <!-- Beans -->
-    <bean id="authorRepository" class="com.antazri.data.impl.AuthorRepositoryImpl"/>
-    <bean id="bookRepository" class="com.antazri.data.impl.BookRepositoryImpl"/>
-    <bean id="categoryRepository" class="com.antazri.data.impl.CategoryRepositoryImpl"/>
-    <bean id="noteRepository" class="com.antazri.data.impl.NoteRepositoryImpl"/>
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean id="categoryDao" class="com.antazri.data.impl.CategoryDaoImpl">
+        <constructor-arg ref="jdbcTemplate" />
+    </bean>
 
 </beans>

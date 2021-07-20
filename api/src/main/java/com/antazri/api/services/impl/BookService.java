@@ -1,7 +1,7 @@
 package com.antazri.api.services.impl;
 
 import com.antazri.api.services.IBookService;
-import com.antazri.data.BookRepository;
+import com.antazri.data.BookDao;
 import com.antazri.exceptions.BookException;
 import com.antazri.model.*;
 import com.antazri.model.utils.Message;
@@ -19,9 +19,9 @@ public class BookService implements IBookService {
 
     private static final Logger logger = LogManager.getLogger(BookService.class);
 
-    private final BookRepository bookDao;
+    private final BookDao bookDao;
 
-    public BookService(BookRepository bookDao) {
+    public BookService(BookDao bookDao) {
         this.bookDao = bookDao;
     }
 

@@ -1,7 +1,7 @@
 package com.antazri.api.services.impl;
 
 import com.antazri.api.services.IAuthorService;
-import com.antazri.data.AuthorRepository;
+import com.antazri.data.AuthorDao;
 import com.antazri.exceptions.AuthorException;
 import com.antazri.model.Author;
 import org.apache.logging.log4j.LogManager;
@@ -19,9 +19,9 @@ public class AuthorService implements IAuthorService {
 
     private static final Logger logger = LogManager.getLogger(AuthorService.class);
 
-    private final AuthorRepository authorDao;
+    private final AuthorDao authorDao;
 
-    public AuthorService(AuthorRepository authorDao) {
+    public AuthorService(AuthorDao authorDao) {
         this.authorDao = authorDao;
     }
 
