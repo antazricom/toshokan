@@ -8,6 +8,7 @@ public class Category {
     private int id;
     private String uuid;
     private String name;
+    private String type;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -38,6 +39,14 @@ public class Category {
         this.name = name;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -59,14 +68,12 @@ public class Category {
         if (this == o) return true;
         if (!(o instanceof Category)) return false;
         Category category = (Category) o;
-        return getId() == category.getId() &&
-                getUuid().equals(category.getUuid()) &&
-                getName().equals(category.getName());
+        return id == category.id && Objects.equals(uuid, category.uuid) && Objects.equals(name, category.name) && Objects.equals(type, category.type) && Objects.equals(createdAt, category.createdAt) && Objects.equals(updatedAt, category.updatedAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getUuid(), getName());
+        return Objects.hash(id, uuid, name, type, createdAt, updatedAt);
     }
 
     @Override
@@ -75,6 +82,7 @@ public class Category {
                 "id=" + id +
                 ", uuid='" + uuid + '\'' +
                 ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';
